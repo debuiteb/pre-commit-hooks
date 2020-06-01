@@ -13,13 +13,14 @@ def _get_file_verbose_occurrences(filename: str) -> int:
     with open(filename, 'rb') as f:
         for i, line in enumerate(f, 1):
             if CURL_VERBOSE_PATTERN.search(line):
+                print(line.decode('utf-8'))
+                print(f'line.decode("utf-8"): {i}')
+                print(f'repr(line).decode("utf-8"): {i}')
+
                 print(
                     f'Talkative/Verbose cURL command found: '
                     f'{repr(filename)}:{repr(i)}:{repr(line)[2:]}',
                 )
-                print(line.decode('utf-8'))
-                print(f'line.decode("utf-8"): {i}')
-                print(f'repr(line).decode("utf-8"): {i}')
                 file_verbose_occurrences += 1
     return file_verbose_occurrences
 
