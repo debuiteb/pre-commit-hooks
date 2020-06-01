@@ -19,7 +19,7 @@ def _get_file_verbose_occurrences(filename: str) -> int:
 
                 print(
                     f'Talkative/Verbose cURL command found:'
-                    f'{repr(filename)}:{repr(i)}:{repr(line)[2:]}',
+                    f'{repr(filename)}:{repr(i)}:{line.decode("utf-8")}',
                 )
                 file_verbose_occurrences += 1
     return file_verbose_occurrences
