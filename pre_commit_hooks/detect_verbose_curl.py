@@ -15,10 +15,9 @@ def _get_file_verbose_occurrences(filename: str) -> int:
             if CURL_VERBOSE_PATTERN.search(line):
                 print(
                     f'Talkative/Verbose cURL command found:'
-                    f'{repr(filename)}: {repr(i)} : {line.decode("utf-8")}',
+                    f'{repr(filename)}:{repr(i)}:{line.decode("utf-8")}',
                     end='',
                 )
-                print(f'{repr(line)}  ------{i}')
                 file_verbose_occurrences += 1
     return file_verbose_occurrences
 
